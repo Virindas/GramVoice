@@ -13,7 +13,7 @@ import {
   Building,
 } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
-import { getUser } from '../../lib/auth'
+import { getUser, UserSession } from '../../lib/auth'
 
 export default function EmergencySOS() {
   const navigate = useNavigate()
@@ -21,6 +21,7 @@ export default function EmergencySOS() {
   const [countdown, setCountdown] = React.useState(3)
   const [callingContact, setCallingContact] = React.useState<string | null>(null)
   const [activeAlerts, setActiveAlerts] = React.useState<any[]>([])
+  const [user, setUser] = React.useState<UserSession | null>(null)
 
   const countdownRef = React.useRef<ReturnType<typeof setInterval> | null>(null)
 
@@ -45,6 +46,7 @@ export default function EmergencySOS() {
       navigate('/login')
       return
     }
+    setUser(session)
 
     const userId = session.id
     loadActiveAlerts(userId)
@@ -152,7 +154,7 @@ export default function EmergencySOS() {
     <div className="min-h-screen bg-slate-50 text-slate-800 pb-16 font-sans relative overflow-hidden flex flex-col justify-between">
       {/* Background Alerts Warnings */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-red-600/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-125 h-125 bg-red-600/5 rounded-full blur-3xl" />
         {triggerState === 'calling' && (
           <div className="absolute inset-0 bg-red-500/5 animate-pulse" />
         )}
@@ -213,10 +215,10 @@ export default function EmergencySOS() {
               onClick={triggerState === 'idle' ? startSOS : triggerState === 'countdown' ? cancelSOS : undefined}
               className={`w-44 h-44 rounded-full flex flex-col items-center justify-center shadow-2xl relative z-10 cursor-pointer ${
                 triggerState === 'countdown'
-                  ? 'bg-gradient-to-br from-white to-slate-100 border-2 border-red-500 text-red-600 shadow-red-500/10'
+                  ? 'bg-linear-to-br from-white to-slate-100 border-2 border-red-500 text-red-600 shadow-red-500/10'
                   : triggerState === 'calling'
-                  ? 'bg-gradient-to-br from-red-600 to-red-800 text-white shadow-red-500/30 animate-pulse'
-                  : 'bg-gradient-to-br from-red-500 to-red-700 text-white shadow-red-500/30'
+                  ? 'bg-linear-to-br from-red-600 to-red-800 text-white shadow-red-500/30 animate-pulse'
+                  : 'bg-linear-to-br from-red-500 to-red-700 text-white shadow-red-500/30'
               }`}
             >
               {triggerState === 'countdown' ? (
@@ -394,14 +396,14 @@ export default function EmergencySOS() {
                 <div className="space-y-1 text-xs text-slate-600">
                   <p className="font-bold text-slate-800">AI Voice Assistant Active:</p>
                   <p>
-                    &quot;Broadcasting SOS to Panchayat: Ramesh Kumar requires medical support at Ward 3...&quot;
+                    &quot;Broadcasting SOS to Panchayat: {user?.name || 'Citizen'} requires medical support at {user?.address || 'Ward 3'}...&quot;
                   </p>
                 </div>
               </div>
 
               <button
                 onClick={endCall}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-poppins font-bold shadow-lg shadow-red-500/20 cursor-pointer"
+                className="w-full py-4 rounded-2xl bg-linear-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-poppins font-bold shadow-lg shadow-red-500/20 cursor-pointer"
               >
                 End Emergency Call
               </button>

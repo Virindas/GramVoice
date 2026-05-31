@@ -176,7 +176,7 @@ export default function VillagerDashboard() {
 
   const translations = {
     en: {
-      welcome: 'Welcome, Ramesh Kumar',
+      welcome: 'Welcome, Citizen',
       tagline: 'North Village (Ward 3)',
       recordTitle: 'Record Voice Complaint',
       recordDesc: 'Speak your issue directly to Panchayat in your language.',
@@ -190,7 +190,7 @@ export default function VillagerDashboard() {
       listenUpdates: 'Listen to updates',
     },
     hi: {
-      welcome: 'स्वागत है, रमेश कुमार',
+      welcome: 'स्वागत है, नागरिक',
       tagline: 'उत्तरी गाँव (वार्ड 3)',
       recordTitle: 'शिकायत दर्ज करें',
       recordDesc: 'अपनी भाषा में पंचायत को सीधे अपनी समस्या बताएं।',
@@ -204,7 +204,7 @@ export default function VillagerDashboard() {
       listenUpdates: 'अपडेट सुनें',
     },
     ta: {
-      welcome: 'வரவேற்கிறோம், ரமேஷ் குமார்',
+      welcome: 'வரவேற்கிறோம், குடிமகன்',
       tagline: 'வடக்கு கிராமம் (வார்டு 3)',
       recordTitle: 'குரல் புகார் பதிவு செய்க',
       recordDesc: 'உங்கள் மொழியில் பஞ்சாயத்திற்கு நேரடியாக புகாரை தெரிவிக்கவும்.',
@@ -218,7 +218,7 @@ export default function VillagerDashboard() {
       listenUpdates: 'புதிய செய்திகள் கேட்க',
     },
   }[lang] || {
-    welcome: 'Welcome, Ramesh Kumar',
+    welcome: 'Welcome, Citizen',
     tagline: 'North Village (Ward 3)',
     recordTitle: 'Record Voice Complaint',
     recordDesc: 'Speak your issue directly to Panchayat in your language.',
