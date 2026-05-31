@@ -1,0 +1,245 @@
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* GramVoice Premium Color Palette */
+  --background: oklch(0.98 0.01 180);
+  --foreground: oklch(0.2 0.02 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 240);
+  --primary: oklch(0.48 0.15 150); /* Emerald Green */
+  --primary-foreground: oklch(0.98 0.01 180);
+  --secondary: oklch(0.35 0.12 250); /* Deep Blue */
+  --secondary-foreground: oklch(0.98 0.01 180);
+  --muted: oklch(0.88 0.02 210); /* Warm Gray */
+  --muted-foreground: oklch(0.5 0.02 240);
+  --accent: oklch(0.48 0.15 150); /* Emerald Green Accent */
+  --accent-foreground: oklch(0.98 0.01 180);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 180);
+  --border: oklch(0.92 0.01 180);
+  --input: oklch(0.95 0.01 180);
+  --ring: oklch(0.48 0.15 150);
+  --chart-1: oklch(0.48 0.15 150);
+  --chart-2: oklch(0.35 0.12 250);
+  --chart-3: oklch(0.6 0.1 140);
+  --chart-4: oklch(0.75 0.08 200);
+  --chart-5: oklch(0.88 0.02 210);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.98 0.01 180);
+  --sidebar-foreground: oklch(0.2 0.02 240);
+  --sidebar-primary: oklch(0.48 0.15 150);
+  --sidebar-primary-foreground: oklch(0.98 0.01 180);
+  --sidebar-accent: oklch(0.35 0.12 250);
+  --sidebar-accent-foreground: oklch(0.98 0.01 180);
+  --sidebar-border: oklch(0.92 0.01 180);
+  --sidebar-ring: oklch(0.48 0.15 150);
+}
+
+.dark {
+  --background: oklch(0.98 0.01 180);
+  --foreground: oklch(0.2 0.02 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 240);
+  --primary: oklch(0.48 0.15 150);
+  --primary-foreground: oklch(0.98 0.01 180);
+  --secondary: oklch(0.35 0.12 250);
+  --secondary-foreground: oklch(0.98 0.01 180);
+  --muted: oklch(0.88 0.02 210);
+  --muted-foreground: oklch(0.5 0.02 240);
+  --accent: oklch(0.48 0.15 150);
+  --accent-foreground: oklch(0.98 0.01 180);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 180);
+  --border: oklch(0.92 0.01 180);
+  --input: oklch(0.95 0.01 180);
+  --ring: oklch(0.48 0.15 150);
+  --chart-1: oklch(0.48 0.15 150);
+  --chart-2: oklch(0.35 0.12 250);
+  --chart-3: oklch(0.6 0.1 140);
+  --chart-4: oklch(0.75 0.08 200);
+  --chart-5: oklch(0.88 0.02 210);
+  --sidebar: oklch(0.98 0.01 180);
+  --sidebar-foreground: oklch(0.2 0.02 240);
+  --sidebar-primary: oklch(0.48 0.15 150);
+  --sidebar-primary-foreground: oklch(0.98 0.01 180);
+  --sidebar-accent: oklch(0.35 0.12 250);
+  --sidebar-accent-foreground: oklch(0.98 0.01 180);
+  --sidebar-border: oklch(0.92 0.01 180);
+  --sidebar-ring: oklch(0.48 0.15 150);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-slate-350: #e2e8f0;
+  --color-slate-450: #cbd5e1;
+  --color-slate-550: #94a3b8;
+  --color-slate-650: #64748b;
+  --color-slate-750: #e2e8f0; /* Soft borders */
+  --color-slate-850: #cbd5e1; /* Accent borders */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body, #root {
+    @apply bg-background text-foreground w-full overflow-x-hidden;
+  }
+
+  /* Custom gradient backgrounds for GramVoice */
+  .gradient-emerald-to-blue {
+    @apply bg-gradient-to-br from-emerald-50 via-blue-50 to-background;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary via-primary/80 to-secondary;
+  }
+
+  .blur-card {
+    @apply backdrop-blur-sm bg-white/80;
+  }
+
+  /* Premium touch feedback & micro-animations */
+  button, [role="button"], a {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  button:hover:not(:disabled), [role="button"]:hover:not(:disabled) {
+    filter: brightness(1.08);
+  }
+  button:active:not(:disabled), [role="button"]:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  /* Accessible placeholders styling */
+  ::placeholder {
+    opacity: 0.8 !important;
+    font-weight: 500;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==================================================
+   LIGHT MODE HARDCODED OVERRIDES FOR SUBPAGES
+   ================================================== */
+div.min-h-screen.bg-slate-950, div.min-h-screen.bg-slate-900, div.min-h-screen.bg-black {
+  background-color: var(--background) !important;
+  background-image: none !important;
+  color: var(--foreground) !important;
+}
+
+header.bg-slate-950\/80, header.bg-slate-950, header.bg-slate-900\/60 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: var(--border) !important;
+}
+
+header.bg-slate-950\/80 *, header.bg-slate-950 *, header.bg-slate-900\/60 * {
+  &:not(.bg-primary *, .bg-emerald-600 *, .bg-blue-600 *, .bg-red-600 *, .bg-red-700 *, button *, a *, select, option) {
+    color: var(--foreground) !important;
+  }
+}
+
+section.bg-slate-900, div.bg-slate-900, section.bg-slate-950\/40, div.bg-slate-950\/40, section.bg-slate-900\/20, div.bg-slate-900\/20, div.bg-slate-900\/40, div.bg-slate-950\/80, section.bg-slate-950\/50, div.bg-slate-950\/50 {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+section.bg-slate-900 *, div.bg-slate-900 *, section.bg-slate-950\/40 *, div.bg-slate-950\/40 *, section.bg-slate-900\/20 *, div.bg-slate-900\/20 *, div.bg-slate-900\/40 *, div.bg-slate-950\/80 *, section.bg-slate-950\/50 *, div.bg-slate-950\/50 * {
+  &:not(.bg-primary *, .bg-emerald-600 *, .bg-blue-600 *, .bg-red-600 *, .bg-red-700 *, button *, a *, select, option) {
+    color: var(--foreground) !important;
+  }
+}
+
+/* Force light gray on secondary buttons that were styled dark */
+button.bg-slate-900, button.bg-slate-950, button.bg-slate-800, button.bg-slate-950\/60 {
+  background-color: var(--muted) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+button.bg-slate-900:hover, button.bg-slate-950:hover, button.bg-slate-800:hover {
+  background-color: var(--border) !important;
+}
+
+/* Override borders */
+.border-slate-800, .border-slate-900, .border-slate-850, .border-slate-700, .border-slate-850\/50 {
+  border-color: var(--border) !important;
+}
+
+/* Ensure text-slate-100/200/300 is readable on white/light panels */
+.text-slate-100, .text-slate-200, .text-slate-300 {
+  &:not(.bg-primary *, .bg-emerald-600 *, .bg-blue-600 *, .bg-red-600 *, .bg-red-750 *, .bg-red-700 *, button *, a *, select, option) {
+    color: var(--foreground) !important;
+  }
+}
+
+/* Make secondary text labels darker for better contrast */
+.text-slate-400, .text-slate-500 {
+  &:not(.bg-primary *, .bg-emerald-600 *, .bg-blue-600 *, .bg-red-600 *, .bg-red-750 *, .bg-red-700 *, button *, a *, select, option) {
+    color: var(--muted-foreground) !important;
+  }
+}
+
+/* Ensure inputs are fully visible and readable */
+input[type="text"], input[type="tel"], input[type="password"], textarea, select {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+input[type="text"]::placeholder, input[type="tel"]::placeholder, input[type="password"]::placeholder, textarea::placeholder {
+  color: var(--muted-foreground) !important;
+  opacity: 0.6 !important;
+}
+
