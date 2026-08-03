@@ -1,0 +1,44 @@
+name: GramVoice Concurrency Load Testing
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  load-test:
+    name: Run Concurrency Load Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: npm install
+
+      - name: Install Selenium Web E2E Dependencies
+        run: |
+          cd e2e-testing
+          npm install
+
+      - name: Run Concurrency Load Testing Suite
+        run: |
+          cd e2e-testing
+          node load-test/load-tester.js
+
+      - name: Upload Load Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gramvoice-load-test-report
+          path: e2e-testing/reports/gramvoice_load_test_report*.xlsx
+          retention-days: 14

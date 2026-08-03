@@ -1,0 +1,44 @@
+name: GramVoice Web E2E (Selenium)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  web-test:
+    name: Run Web E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: npm install
+
+      - name: Install Selenium Web E2E Dependencies
+        run: |
+          cd e2e-testing
+          npm install
+
+      - name: Run Web Selenium E2E Suite
+        run: |
+          cd e2e-testing
+          node run-all.js
+
+      - name: Upload Web Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gramvoice-web-e2e-report
+          path: e2e-testing/reports/*.xlsx
+          retention-days: 14
