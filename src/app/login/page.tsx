@@ -182,20 +182,26 @@ export default function LoginPage() {
         {/* Glassmorphism Card */}
         <div className="p-6 sm:p-8 rounded-3xl border border-slate-800 bg-slate-900/40 backdrop-blur-md shadow-2xl space-y-6">
           {/* Toggle Tab */}
-          <div className="flex bg-slate-950 p-1 rounded-2xl border border-slate-850">
+          <div className="flex bg-slate-200 dark:bg-slate-950 p-1 rounded-2xl border border-slate-300 dark:border-slate-850">
             <button
+              type="button"
               onClick={() => setIsAdminMode(false)}
               className={`flex-1 py-2.5 rounded-xl font-poppins text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                !isAdminMode ? 'bg-slate-900 text-emerald-400 shadow-sm' : 'text-slate-500 hover:text-slate-350'
+                !isAdminMode 
+                  ? 'bg-emerald-600 text-white shadow-md hover:text-white' 
+                  : 'text-slate-650 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
               }`}
             >
               <User className="w-4 h-4" />
               Villager Login
             </button>
             <button
+              type="button"
               onClick={() => setIsAdminMode(true)}
               className={`flex-1 py-2.5 rounded-xl font-poppins text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                isAdminMode ? 'bg-slate-900 text-blue-400 shadow-sm' : 'text-slate-500 hover:text-slate-350'
+                isAdminMode 
+                  ? 'bg-blue-600 text-white shadow-md hover:text-white' 
+                  : 'text-slate-650 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
               }`}
             >
               <Shield className="w-4 h-4" />
