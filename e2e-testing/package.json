@@ -1,0 +1,16 @@
+{
+  "name": "gramvoice-e2e-testing",
+  "version": "1.0.0",
+  "description": "End-to-end Selenium and Appium testing suite for GramVoice",
+  "main": "run-all.js",
+  "type": "module",
+  "scripts": {
+    "test": "node run-all.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.18.0",
+    "exceljs": "^4.4.0",
+    "webdriverio": "^8.32.4",
+    "chrome-launcher": "^1.1.1"
+  }
+}

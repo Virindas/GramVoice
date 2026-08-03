@@ -1,0 +1,14 @@
+{
+  "name": "gramvoice-frontend-appium-tests",
+  "version": "1.0.0",
+  "description": "Appium E2E testing suite for GramVoice mobile application screens",
+  "main": "run-appium.js",
+  "type": "module",
+  "scripts": {
+    "test": "node run-appium.js"
+  },
+  "dependencies": {
+    "webdriverio": "^8.32.4",
+    "exceljs": "^4.4.0"
+  }
+}
