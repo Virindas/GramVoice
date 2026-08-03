@@ -25,6 +25,12 @@ jobs:
       - name: Install Project Dependencies
         run: npm install
 
+      - name: Run Linter Validation
+        run: npm run lint
+
+      - name: Verify Production Build Compilation (TSC & Vite)
+        run: npm run build
+
       - name: Install Selenium Web E2E Dependencies
         run: |
           cd e2e-testing
